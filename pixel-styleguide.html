@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PIXEL.CSS — 1-bit Design System</title>
+<link rel="stylesheet" href="pixel.css">
+<style>
+  body { padding: 32px 16px; }
+  .wrap { max-width: 960px; margin: 0 auto; }
+  section { margin-bottom: 48px; }
+  section > h2 { margin-bottom: 4px; }
+  section > p.desc { margin-bottom: 16px; }
+  .swatch { border: var(--border); height: 80px; display: grid; place-items: end start; }
+  .swatch b { background: var(--paper); border-top: var(--border-light); border-right: var(--border-light); padding: 0 8px; }
+  .spec { font-size: 16px; opacity: 1; }
+  .demo-row { margin-bottom: 12px; }
+</style>
+</head>
+<body class="px px-bg">
+<div class="wrap">
+
+  <header class="px-window" style="margin-bottom:48px">
+    <div class="px-window__title"><span>PIXEL.CSS v1.0</span></div>
+    <div class="px-window__body">
+      <h1 class="px-cursor">1-BIT DESIGN SYSTEM</h1>
+      <p style="margin-top:8px">Black. White. Nothing else.
+        Grays are <span class="px-invert">dithered</span>, emphasis is inverted,
+        depth is a hard 4px shadow. Everything snaps to a 4px grid.</p>
+      <div class="px-row" style="margin-top:16px">
+        <span class="px-badge px-badge--solid">B/W ONLY</span>
+        <span class="px-badge">PIXEL OPERATOR</span>
+        <span class="px-badge px-badge--dither">4PX GRID</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- COLOR -->
+  <section>
+    <h2>01 · COLOR</h2>
+    <p class="desc">Two colors. "Shades" are dither patterns, never gray hex values.</p>
+    <div class="px-grid px-grid--4">
+      <div><div class="swatch" style="background:var(--ink)"><b>--ink #000</b></div></div>
+      <div><div class="swatch" style="background:var(--paper)"><b>--paper #FFF</b></div></div>
+      <div><div class="swatch" style="background-image:var(--dither-50);background-size:4px 4px"><b>--dither-50</b></div></div>
+      <div><div class="swatch" style="background-image:var(--dither-25);background-size:4px 4px"><b>--dither-25</b></div></div>
+    </div>
+  </section>
+
+  <!-- TYPE -->
+  <section>
+    <h2>02 · TYPE</h2>
+    <p class="desc">Pixel Operator at multiples of 8px so glyphs stay crisp. No anti-aliasing.</p>
+    <div class="px-card px-stack">
+      <div><h1>Heading XL 48px</h1><span class="spec">.px-h1</span></div>
+      <div><h2>Heading LG 32px</h2><span class="spec">.px-h2</span></div>
+      <div><h3>Heading MD 24px</h3><span class="spec">.px-h3</span></div>
+      <div><p>Body 16px — The quick brown fox jumps over the lazy dog 0123456789</p><span class="spec">.px</span></div>
+      <div><p class="px-label">Label · uppercase · letter-spaced</p><span class="spec">.px-label</span></div>
+      <div><p class="px-num">$25,740,000.00 tabular numerals</p><span class="spec">.px-num</span></div>
+    </div>
+  </section>
+
+  <!-- BUTTONS -->
+  <section>
+    <h2>03 · BUTTONS</h2>
+    <p class="desc">Press = shadow collapses and the button physically moves 4px. Hover = dither fill.</p>
+    <div class="px-card">
+      <div class="px-row demo-row">
+        <button class="px-btn">DEFAULT</button>
+        <button class="px-btn px-btn--primary">PRIMARY</button>
+        <button class="px-btn px-btn--sm">SMALL</button>
+        <button class="px-btn" disabled>DISABLED</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- BADGES -->
+  <section>
+    <h2>04 · BADGES & SEMANTICS</h2>
+    <p class="desc">No red/green: gains are outlined ▲, losses are inverted ▼.</p>
+    <div class="px-card px-row">
+      <span class="px-badge">OUTLINE</span>
+      <span class="px-badge px-badge--solid">SOLID</span>
+      <span class="px-badge px-badge--dither">DITHER</span>
+      <span class="px-up px-num">+35.09%</span>
+      <span class="px-down px-num">-13.36%</span>
+    </div>
+  </section>
+
+  <!-- TABLE -->
+  <section>
+    <h2>05 · TABLE</h2>
+    <p class="desc">Inverted header. Hairline 1px row dividers — secondary info stays quiet. Dither/invert rows replace colored highlights.</p>
+    <div class="px-card" style="padding:0;overflow-x:auto">
+      <table class="px-table">
+        <thead><tr><th>YEAR</th><th>RETURN</th><th>SOURCE</th><th>TOTAL</th></tr></thead>
+        <tbody>
+          <tr><td>2021</td><td class="px-num"><span class="px-up">+33.83%</span></td><td>STOCK</td><td class="px-num">$13.19M</td></tr>
+          <tr class="px-row--dither"><td>2022</td><td class="px-num"><span class="px-up">+22.19%</span></td><td>STOCK</td><td class="px-num">$15.97M</td></tr>
+          <tr><td>2023</td><td class="px-num"><span class="px-down">-7.50%</span></td><td>CASH</td><td class="px-num">$14.71M</td></tr>
+          <tr class="px-row--invert"><td>2024</td><td class="px-num">+35.09%</td><td>STOCK ✚ REFILL</td><td class="px-num">$19.71M</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- FORMS -->
+  <section>
+    <h2>06 · FORMS</h2>
+    <p class="desc">Square everything. Focus = inset double border, no glow.</p>
+    <div class="px-card px-row">
+      <input class="px-input" placeholder="TYPE HERE_">
+      <select class="px-select"><option>OPTION A</option><option>OPTION B</option></select>
+      <label class="px-check"><input type="checkbox" checked><span class="box"></span>CHECKED</label>
+      <label class="px-check"><input type="checkbox"><span class="box"></span>EMPTY</label>
+    </div>
+  </section>
+
+  <!-- METERS -->
+  <section>
+    <h2>07 · METERS</h2>
+    <p class="desc">Progress bars are segmented blocks, like a loading screen from 1989.</p>
+    <div class="px-card px-stack">
+      <div class="px-progress"><i style="width:72%"></i></div>
+      <div class="px-progress"><i style="width:35%"></i></div>
+      <div class="px-bar">
+        <i style="height:30%"></i><i style="height:45%"></i><i class="lo" style="height:60%"></i>
+        <i style="height:40%"></i><i style="height:70%"></i><i style="height:55%"></i>
+        <i class="lo" style="height:80%"></i><i style="height:100%"></i>
+      </div>
+    </div>
+  </section>
+
+  <!-- ALERTS -->
+  <section>
+    <h2>08 · ALERTS</h2>
+    <div class="px-stack">
+      <div class="px-alert"><b>NOTE:</b> default callout with thick left edge.</div>
+      <div class="px-alert px-alert--solid"><b>ALERT:</b> inverted for maximum urgency.</div>
+      <div class="px-alert px-alert--dither"><span><b>WARN:</b> dithered background, text on paper.</span></div>
+    </div>
+  </section>
+
+  <!-- WINDOW + TABS + KBD -->
+  <section>
+    <h2>09 · CHROME</h2>
+    <div class="px-grid px-grid--2">
+      <div class="px-window">
+        <div class="px-window__title"><span>WINDOW.EXE</span></div>
+        <div class="px-window__body">System-1 style title bar with line fill.</div>
+      </div>
+      <div>
+        <div class="px-tabs">
+          <button class="px-tab" aria-selected="true">TAB 1</button>
+          <button class="px-tab">TAB 2</button>
+          <button class="px-tab">TAB 3</button>
+        </div>
+        <div style="border:var(--border);border-top:0;padding:16px;background:var(--paper)">
+          Press <kbd>CTRL</kbd> + <kbd>P</kbd> to print.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer style="text-align:center;padding:24px 0">
+    <hr class="px-hr">
+    <p class="px-label">PIXEL.CSS · LINK IT: &lt;link rel="stylesheet" href="pixel.css"&gt; · ADD class="px px-bg" TO &lt;body&gt;</p>
+  </footer>
+
+</div>
+<script>
+  // tabs demo
+  document.querySelectorAll('.px-tabs').forEach(t => t.addEventListener('click', e => {
+    if (!e.target.classList.contains('px-tab')) return;
+    t.querySelectorAll('.px-tab').forEach(b => b.setAttribute('aria-selected', b === e.target));
+  }));
+</script>
+</body>
+</html>
