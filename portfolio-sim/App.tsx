@@ -720,7 +720,7 @@ export default function App() {
               <div className="pxw-body chart-scroll">
                 <div style={{ minWidth: 560, height: 320 }}>
                 {/* Teal area uses hatched pattern, others use gradient */}
-                <AreaChart data={areaData} config={chartConfig} stackType="stacked" bloom={{ blur: 0, brightness: 1.35, opacity: 0.3, saturate: 1.4 }}>
+                <AreaChart data={areaData} config={chartConfig} stackType="stacked" bloom={{ blur: 0, brightness: 1.35, opacity: 0.35, saturate: 1.4 }}>
                   <Grid />
                   <XAxis dataKey="year" />
                   <YAxis tickFormatter={(v: number) => `$${v}M`} />
@@ -758,7 +758,7 @@ export default function App() {
                 <div>
                   <p className="px-label" style={{ textAlign: "center", margin: "0 0 8px" }}>{t.allocStart}</p>
                   <div style={{ height: 240 }}>
-                    <PieChart data={pieStart} config={chartConfig} dataKey="value" nameKey="bucket" innerRadius={0.5} bloom={{ blur: 3, brightness: 1.35, opacity: 0.3, saturate: 1.4 }}>
+                    <PieChart data={pieStart} config={chartConfig} dataKey="value" nameKey="bucket" innerRadius={0.5} bloom={{ blur: 0, brightness: 1.35, opacity: 0.35, saturate: 1.4 }}>
                       <Legend align="center" />
                       <Tooltip />
                       <Pie variant="dotted" />
@@ -768,7 +768,7 @@ export default function App() {
                 <div>
                   <p className="px-label" style={{ textAlign: "center", margin: "0 0 8px" }}>{t.allocEnd}</p>
                   <div style={{ height: 240 }}>
-                    <PieChart data={pieEnd} config={chartConfig} dataKey="value" nameKey="bucket" innerRadius={0.5} bloom={{ blur: 3, brightness: 1.35, opacity: 0.3, saturate: 1.4 }}>
+                    <PieChart data={pieEnd} config={chartConfig} dataKey="value" nameKey="bucket" innerRadius={0.5} bloom={{ blur: 0, brightness: 1.35, opacity: 0.35, saturate: 1.4 }}>
                       <Legend align="center" />
                       <Tooltip />
                       <Pie variant="dotted" />
