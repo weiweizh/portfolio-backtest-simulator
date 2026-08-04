@@ -4,6 +4,9 @@ A beautiful, interactive portfolio backtest simulator with a retro pixel-art aes
 
 ![Portfolio Backtest Simulator](https://img.shields.io/badge/React-18-blue) ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue) ![License](https://img.shields.io/badge/License-MIT-green)
 
+<img width="1453" height="760" alt="portfolio-simulator" src="https://github.com/user-attachments/assets/19bb436b-49e6-4b3a-8ec4-861e72e98beb" />
+
+
 ## Quick Start
 
 Test your investment strategy using 20 years of real market data. Here's how it works:
