@@ -19,7 +19,7 @@ import type { AreaVariant } from "./components/dither-kit/chart-context"
 const YEARS = [2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015,
   2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025]
 
-type SeriesKey = "voo" | "smh" | "qqq" | "gld" | "tlt" | "btc" | "cash" | "custom"
+type SeriesKey = "voo" | "smh" | "qqq" | "gld" | "tlt" | "btc" | "cash" | "schd" | "schy" | "custom"
 
 const SERIES: Record<Exclude<SeriesKey, "custom">, number[]> = {
   // S&P 500 total return (VOO proxy; pre-2010 = index total return)
@@ -43,6 +43,12 @@ const SERIES: Record<Exclude<SeriesKey, "custom">, number[]> = {
   // Cash / 3-month T-bills, approx.
   cash: [4.85, 4.44, 1.80, 0.16, 0.14, 0.06, 0.08, 0.05, 0.03, 0.05,
     0.32, 0.93, 1.94, 2.06, 0.37, 0.04, 2.02, 5.01, 5.25, 4.20],
+  // Schwab U.S. Dividend Equity ETF (inception Oct 2011)
+  schd: [0, 0, 0, 0, 0, 0, 14.63, 32.66, 13.52, -3.65,
+    16.40, 20.52, -6.51, 28.41, 18.22, 28.07, -7.53, 22.15, 24.73, 16.82],
+  // Schwab U.S. International Equity ETF (inception Oct 2016)
+  schy: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0.74,
+    -2.20, 27.30, -13.80, 26.67, -8.27, 7.57, -14.64, 18.22, 16.58, 8.45],
 }
 
 // BTC is entered as coins held; series data starts at ~$0.30 (start of 2011)
@@ -58,11 +64,11 @@ type Lang = "zh" | "en"
 const PRESET_NAMES: Record<Lang, Record<SeriesKey, string>> = {
   zh: {
     voo: "VOO 标普500", smh: "SMH 半导体", qqq: "QQQ 纳指100", gld: "GLD 黄金",
-    tlt: "TLT 长期美债", btc: "BTC 比特币", cash: "现金/美债ETF", custom: "自定义固定收益",
+    tlt: "TLT 长期美债", btc: "BTC 比特币", cash: "现金/美债ETF", schd: "SCHD 美国高股息", schy: "SCHY 国际股票", custom: "自定义固定收益",
   },
   en: {
     voo: "VOO S&P 500", smh: "SMH Semiconductors", qqq: "QQQ Nasdaq-100", gld: "GLD Gold",
-    tlt: "TLT 20+Y Treasury", btc: "BTC Bitcoin", cash: "Cash/Treasury ETF", custom: "Custom fixed return",
+    tlt: "TLT 20+Y Treasury", btc: "BTC Bitcoin", cash: "Cash/Treasury ETF", schd: "SCHD Dividend ETF", schy: "SCHY International Equity", custom: "Custom fixed return",
   },
 }
 
