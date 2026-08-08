@@ -22,7 +22,7 @@ const YEARS = [2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015,
 type SeriesKey = "voo" | "smh" | "qqq" | "gld" | "tlt" | "btc" | "cash" | "schd" | "schy" | "custom"
 
 const SERIES: Record<Exclude<SeriesKey, "custom">, number[]> = {
-  // S&P 500 total return (VOO proxy; pre-2010 = index total return)
+  // S&P 500 total return (2006-2009: index; 2010-2025: VOO inception Sept 2010)
   voo: [15.79, 5.49, -37.00, 26.46, 15.06, 2.11, 16.00, 32.39, 13.69, 1.38,
     11.96, 21.83, -4.38, 31.49, 18.40, 28.71, -18.11, 26.29, 25.02, 17.82],
   // VanEck Semiconductor ETF
